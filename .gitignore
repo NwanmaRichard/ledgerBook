@@ -31,6 +31,7 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
@@ -41,3 +42,11 @@ example
 # generated native folders
 /ios
 /android
+
+# Local agent skill packs. They are not part of the app.
+.agents/
+.claude/
+skills-lock.json
+
+# Supabase CLI cache
+supabase/.temp/

@@ -1,0 +1,198 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+/*
+ * LedgerBook theme.
+ * Hex values for light semantic colors match `src/theme/colors.ts`.
+ * Semantic colors are CSS variables so ThemeProvider can swap light and dark.
+ * Fixed brand colors stay constant in both schemes.
+ */
+
+@theme {
+  --spacing: 4px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0px 8px 24px rgba(23, 33, 43, 0.06);
+  --shadow-raised: 0px 4px 12px rgba(23, 33, 43, 0.1);
+  --shadow-overlay: 0px 12px 32px rgba(15, 20, 25, 0.18);
+
+  --font-sans: "Poppins-Regular";
+  --font-poppins: "Poppins-Regular";
+  --font-poppins-medium: "Poppins-Medium";
+  --font-poppins-semibold: "Poppins-SemiBold";
+  --font-poppins-bold: "Poppins-Bold";
+
+  /* Fixed brand palette */
+  --color-navy: #1a237e;
+  --color-emerald: #1b5e20;
+  --color-emerald-light: #e8f5ee;
+  --color-mint: #cde8d8;
+  --color-success: #1b5e20;
+  --color-warning: #f9a825;
+  --color-error: #d32f2f;
+  --color-info: #3f83f8;
+  --color-ink: #17212b;
+  --color-slate: #64748b;
+  --color-line: #e2e8f0;
+  --color-canvas: #f8fafc;
+  --color-on-accent: #ffffff;
+
+  /* Semantic roles. Light defaults; dark values come from ThemeProvider. */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-foreground: #17212b;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-heading: #1a237e;
+  --color-accent: #1b5e20;
+  --color-accent-soft: #e8f5ee;
+  --color-positive: #1b5e20;
+  --color-caution: #f9a825;
+  --color-critical: #d32f2f;
+  --color-inform: #3f83f8;
+}
+
+:root {
+  --font-sans: "Poppins-Regular";
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-foreground: #17212b;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-heading: #1a237e;
+  --color-accent: #1b5e20;
+  --color-accent-soft: #e8f5ee;
+  --color-positive: #1b5e20;
+  --color-caution: #f9a825;
+  --color-critical: #d32f2f;
+  --color-inform: #3f83f8;
+}
+
+@media ios {
+  :root {
+    --font-sans: "Poppins-Regular";
+  }
+}
+
+@media android {
+  :root {
+    --font-sans: "Poppins-Regular";
+  }
+}
+
+/* Screen and surface */
+
+@utility screen {
+  flex: 1;
+  background-color: var(--color-surface);
+}
+
+@utility card {
+  background-color: var(--color-background);
+  border-radius: 24px;
+  border-width: 1px;
+  border-color: var(--color-border);
+  padding: 24px;
+  box-shadow: 0px 8px 24px rgba(23, 33, 43, 0.06);
+}
+
+@utility swatch {
+  height: 56px;
+  border-radius: 12px;
+  border-width: 1px;
+  border-color: var(--color-border);
+}
+
+@utility divider {
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+@utility touch {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Type scale. Each weight is its own Poppins file. */
+
+@utility display {
+  font-family: "Poppins-Bold";
+  font-size: 48px;
+  line-height: 57.6px;
+}
+
+@utility h1 {
+  font-family: "Poppins-Bold";
+  font-size: 32px;
+  line-height: 38.4px;
+}
+
+@utility h2 {
+  font-family: "Poppins-SemiBold";
+  font-size: 24px;
+  line-height: 31.2px;
+}
+
+@utility h3 {
+  font-family: "Poppins-SemiBold";
+  font-size: 20px;
+  line-height: 26px;
+}
+
+@utility h4 {
+  font-family: "Poppins-Medium";
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+@utility body-lg {
+  font-family: "Poppins-Regular";
+  font-size: 16px;
+  line-height: 25.6px;
+}
+
+@utility body {
+  font-family: "Poppins-Regular";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+
+@utility body-sm {
+  font-family: "Poppins-Regular";
+  font-size: 13px;
+  line-height: 20.8px;
+}
+
+@utility caption {
+  font-family: "Poppins-Regular";
+  font-size: 11px;
+  line-height: 15.4px;
+}
+
+@utility label {
+  font-family: "Poppins-Medium";
+  font-size: 12px;
+  line-height: 16.8px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@utility overline {
+  font-family: "Poppins-Medium";
+  font-size: 11px;
+  line-height: 15.4px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
